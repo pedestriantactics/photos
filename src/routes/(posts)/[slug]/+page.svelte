@@ -59,6 +59,10 @@
     };
 
     onMount(() => {
+
+
+      console.log(data);
+
         // delegated click handler so we don't re-bind when list changes
         if (scrollContainer) {
             scrollContainer.addEventListener("click", (ev) => {

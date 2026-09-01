@@ -2,7 +2,8 @@
 export let prerender = false;
 
 export async function load(data: unknown) {
-    const allPostFiles = import.meta.glob("./posts/*.md");
+  const allPostFiles = import.meta.glob("./(posts)/*.md");
+  console.log(allPostFiles)
     const iterablePostFiles = Object.entries(allPostFiles)
 
     const allPosts = await Promise.all(
@@ -13,8 +14,7 @@ export async function load(data: unknown) {
             title: string,
 		shootDate: string,
 		images: {
-			fileName: string,
-			title: string,
+			fileName: string
 		}[]
                 }
             };
@@ -27,7 +27,7 @@ export async function load(data: unknown) {
             }
 
             return {
-				formattedDate: metadata.shootDate,
+                formattedDate: metadata.shootDate,
                 title: metadata.title || "",
                 // category: metadata.category || "",
                 images: metadata.images || [],
@@ -35,11 +35,7 @@ export async function load(data: unknown) {
             };
         }),
     );
-
-    // remove posts that are hidden
-    const filteredPosts = allPosts.filter((post) => post.category !== "hide");
-
     // Sort posts by date
-    const sortedPosts = filteredPosts.sort((a, b) => new Date(b.formattedDate).getTime() - new Date(a.formattedDate).getTime()).slice();
-    return { posts: sortedPosts };
+    const sortedPosts = allPosts.sort((a, b) => new Date(b.formattedDate).getTime() - new Date(a.formattedDate).getTime()).slice();
+    return { data: sortedPosts };
 }
