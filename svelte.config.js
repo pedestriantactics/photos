@@ -22,7 +22,7 @@ const config = {
 		}),
 		paths: {
 			// If deploying via GitHub Actions, it sets GITHUB_REPOSITORY (e.g., 'user/repo')
-			base: process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}` : ''
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH || '/photos'
 		}
 	}
 }
