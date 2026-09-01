@@ -23,7 +23,8 @@
 
     /* used for text size */
     /* used for outer margin */
-    --em: 16px;
+    --em: 18px;
+    --spacer-width: var(--mini-gap);
     /* used to make a paragraph in a modal not expand too wide */
     --paragraph-max-char-width: 28em;
     --icon-size: 20px;
@@ -117,8 +118,8 @@ textarea {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: var(--color-fg);
     font-weight: 400;
-    line-height: 1.2em;
-    letter-spacing: 0.01em;
+    line-height: 1.3em;
+    letter-spacing: 0.02em;
     /* maybe don't need, i tried this to make ios look like */
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
@@ -142,6 +143,11 @@ textarea,
 
 p {
     /*margin-bottom: var(--em);*/
+}
+
+.spacer {
+    width: var(--spacer-width);
+    display: inline-block;
 }
 
 /*this is a standard div that can contain paragraphs, it aligns left and spaces items*/

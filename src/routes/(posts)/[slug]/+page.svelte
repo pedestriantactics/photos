@@ -16,6 +16,9 @@
     // }
     let shootDate = new Date(data.shootDate);
     let formattedDate = shootDate.toISOString().slice(0, 10);
+    function removeFileExtension(inFileName: string) {
+      return inFileName.replace(/\.[^/.]+$/, "");
+    }
     let centerTitle = formattedDate;
     if (data.title && data.title != "") centerTitle = formattedDate + " " + data.title;
 
@@ -109,7 +112,7 @@
 
 <HeaderBar
     title="Dan Taylor"
-    titleLink="./"
+    titleLink="../"
     {centerTitle}
     buttons={headerButtons}
 />
@@ -119,7 +122,7 @@
         iconName="icon-x"
         altTitle="Back"
         onclick={() => {
-            window.location.href = `./`;
+            window.location.href = `../`;
         }}
     />
 {/snippet}
@@ -164,10 +167,10 @@
                     alt={postImage.caption}
                 />
                 <div class="image-footer captions">
-                    <!-- <p>{postImage.imageTitle}</p> -->
-                    {#if postImage.caption}
+                    <p>{removeFileExtension(postImage.fileName)}</p>
+                    <!-- {#if postImage.caption}
                     <p>{postImage.caption}</p>
-                    {/if}
+                    {/if} -->
                 </div>
             </div>
         </div>
