@@ -12,7 +12,8 @@ const mdsvexOptions = {
 const config = {
 	kit: {
 		adapter: adapter({
-			fallback: '404.html'
+      fallback: '404.html',
+			handleHttpError: 'warn' // Changes link errors from fatal crashes to warnings
 		}),
 		paths: {
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
