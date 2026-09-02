@@ -204,7 +204,7 @@
         flex-direction: row;
         /* make it fixed in the browser */
         position: fixed;
-        top: 0;
+        top: calc(var(--header-bar-height) - var(--footer-bar-height));
         left: 0;
         right: 0;
         bottom: 0;
