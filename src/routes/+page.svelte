@@ -305,6 +305,10 @@
         #about-container {
             width: 100%;
         }
+
+        .gallery-image-footer {
+            display: none;
+        }
     }
 
     .centered {
