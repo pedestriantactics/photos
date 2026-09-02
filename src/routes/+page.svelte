@@ -154,7 +154,6 @@
         <!-- TODO Jesse: get the user bio -->
             <div id="about-container">
                 <p>
-                    I frequently conducted product, interior, and outdoor photography while working in industrial design. I'm currently focusing on capturing human's relationship with infrastructure through photo and <a href="https://vimeo.com/danandrewtaylor">video</a>.
                 </p>
             </div>
         <!-- {/if} -->
