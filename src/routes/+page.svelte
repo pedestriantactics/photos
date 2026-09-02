@@ -159,7 +159,7 @@
         <!-- TODO Jesse: get the user bio -->
             <div id="about-container">
                 <p>
-                    I have a background in industrial design and consequently conducted product photography for my entire design career. I now focus on capturing human's relationship with infrastructure through photo and <a href="https://vimeo.com/danandrewtaylor">video</a>.
+                    I have a background in industrial design and consequently conducted product photography for my entire design career. I now focus on capturing humans' relationship with infrastructure through photo and <a href="https://vimeo.com/danandrewtaylor">video</a>.
                 </p>
             </div>
         <!-- {/if} -->
