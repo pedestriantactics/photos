@@ -181,7 +181,7 @@
 <style>
     :root {
         --image-max-height: calc(
-            100vh - var(--header-bar-height) - var(--header-bar-height) -
+            100vh - var(--header-bar-height) - var(--footer-bar-height) -
                 (4 * var(--em))
         );
         --item-max-width: calc(

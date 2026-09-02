@@ -63,7 +63,7 @@
         left: 0;
         right: 0;
         padding: var(--outer-margin);
-        padding-bottom: var(--em);
+        padding-bottom: var(--mini-gap);
         display: flex;
         flex-direction: row;
         background-color: var(--color-bg);

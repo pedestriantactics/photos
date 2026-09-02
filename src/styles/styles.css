@@ -67,7 +67,9 @@
     --color-modal-bg: var(--color-bg);
 
     /* for reference on pages */
-    --header-bar-height: calc(var(--em) + var(--outer-margin) + var(--button-area));
+    --header-bar-height: calc(var(--mini-gap) + var(--outer-margin) + var(--button-area));
+    --footer-bar-height: calc(var(--mini-gap) + var(--em) + var(--em));
+
 
     --top-margin: calc(var(--header-bar-height) + var(--outer-margin));
 
@@ -267,7 +269,7 @@ textarea::placeholder {
 /*from header bar file, header changes at 720*/
 @media (max-width: 720px) {
     :root {
-        --header-bar-height: calc((3 * var(--em)) + var(--button-area));
+        --header-bar-height: calc(var(--mini-gap) + var(--outer-margin) + var(--button-area) + var(--em));
     }
 }
 

@@ -21,10 +21,11 @@
 		left: 0;
 		right: 0;
 		padding: var(--outer-margin);
-		padding-top: var(--em);
+		padding-top: var(--mini-gap);
+		padding-bottom: var(--em);
 		display: flex;
 		background-color: var(--color-bg);
-		height: var(--button-area);
+		height: var(--em);
 		align-items: center;
 		justify-content: space-between;
 	}
