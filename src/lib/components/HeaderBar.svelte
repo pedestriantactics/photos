@@ -63,6 +63,7 @@
         left: 0;
         right: 0;
         padding: var(--outer-margin);
+        padding-bottom: var(--em);
         display: flex;
         flex-direction: row;
         background-color: var(--color-bg);
@@ -78,6 +79,7 @@
         display: flex;
         align-items: center;
         gap: var(--button-gap);
+        flex-grow: 1;
     }
 
     #header-buttons-container {

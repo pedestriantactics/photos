@@ -16,6 +16,7 @@
     // }
     let shootDate = new Date(data.shootDate);
     let formattedDate = shootDate.toISOString().slice(0, 10);
+
     function removeFileExtension(inFileName: string) {
       return inFileName.replace(/\.[^/.]+$/, "");
     }
@@ -101,7 +102,7 @@
 </script>
 
 <svelte:head>
-    <title>{data.title ?? data.shootDate}</title>
+    <title>{"Dan Taylor - " + formattedDate + (data.title ? " " + data.title : "")}</title>
     {#if data.description}
         <meta
             name="description"
@@ -294,7 +295,10 @@
         /* background-color: red; */
     }
 
-    @media (max-width: 600px) {
-        /* TODO: need to target the header bar */
+    @media (max-width: 400px) {
+        /*make the space a little more narrow for smaller screens*/
+        :root {
+            --image-gap: 4vw;
+        }
     }
 </style>

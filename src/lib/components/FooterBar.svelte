@@ -21,6 +21,7 @@
 		left: 0;
 		right: 0;
 		padding: var(--outer-margin);
+		padding-top: var(--em);
 		display: flex;
 		background-color: var(--color-bg);
 		height: var(--button-area);

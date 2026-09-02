@@ -8,6 +8,12 @@
 
 <svelte:head>
 	<!-- <link rel="icon" href={favicon} /> -->
+    <title>Dan Taylor</title>
+
+    <meta
+        name="description"
+        content="Photos by Dan Taylor"
+    />
 </svelte:head>
 
 {@render children()}

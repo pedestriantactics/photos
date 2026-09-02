@@ -7,7 +7,6 @@
 
     let { data } = $props();
 
-    let metaTitle = "Test";
     let windowWidth = writable(
         typeof window !== "undefined" ? window.innerWidth : 0,
     );
@@ -132,10 +131,6 @@
 
 </script>
 
-<svelte:head>
-    <title>{metaTitle}</title>
-</svelte:head>
-
 <HeaderBar title="Dan Taylor" titleLink="" buttons={headerButtons} />
 
 {#snippet headerButtons()}
@@ -159,7 +154,7 @@
         <!-- TODO Jesse: get the user bio -->
             <div id="about-container">
                 <p>
-                    I have a background in industrial design and consequently conducted product photography for my entire design career. I now focus on capturing human's relationship with infrastructure through photo and <a href="https://vimeo.com/danandrewtaylor">video</a>.
+                    I frequently conducted product, interior, and outdoor photography while working in industrial design. I'm currently focusing on capturing human's relationship with infrastructure through photo and <a href="https://vimeo.com/danandrewtaylor">video</a>.
                 </p>
             </div>
         <!-- {/if} -->
@@ -279,6 +274,14 @@
     #about-container {
         align-self: flex-end;
         width: calc(66.6vw - (2 * var(--outer-margin)));
+    }
+
+    /*make it smaller for huge screens*/
+    @media (min-width: 1800px) {
+
+        #about-container {
+            width: 33.33%;
+        }
     }
 
     @media (max-width: 900px) {

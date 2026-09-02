@@ -29,7 +29,7 @@
     --paragraph-max-char-width: 28em;
     --icon-size: 20px;
     --outline-thickness: 2px;
-    --outer-margin: var(--em);
+    --outer-margin: 24px;
     /* used for gaps between masonry grid images and titles */
     --mini-gap: 8px;
     /* used for vertical gaps between gallery titles  */
@@ -67,9 +67,9 @@
     --color-modal-bg: var(--color-bg);
 
     /* for reference on pages */
-    --header-bar-height: calc((2 * var(--em)) + var(--button-area));
+    --header-bar-height: calc(var(--em) + var(--outer-margin) + var(--button-area));
 
-    --top-margin: calc(var(--header-bar-height) + var(--em));
+    --top-margin: calc(var(--header-bar-height) + var(--outer-margin));
 
     --body: var(--em);
     --caption: 10px;
@@ -270,6 +270,20 @@ textarea::placeholder {
         --header-bar-height: calc((3 * var(--em)) + var(--button-area));
     }
 }
+
+/*make everything smaller for smaller screens*/
+@media (max-width: 480px), (max-height: 640px) {
+    :root {
+        --em: 16px;
+        --outer-margin: var(--em);
+    }
+}
+
+/*@media (max-height: 400px) {
+    :root {
+        --em: 10px;
+    }
+}*/
 
 /*make titles not indented on small screens*/
 @media (max-width: 320px) {
