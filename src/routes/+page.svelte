@@ -42,6 +42,13 @@
       return inDateDate.toISOString().slice(0, 10);
     }
 
+    function openMail() {
+		const user = "hi";
+		const domain = "imdantaylor.com";
+		const subject = ""
+		window.location.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
+	}
+
     onMount(() => {
 
       const masonryLayouts = document.querySelectorAll<HTMLElement>('.masonry');
@@ -135,9 +142,7 @@
     <IconButton
         iconName="icon-envelope"
         altTitle="Back"
-        onclick={() => {
-            window.location.href = `https://danandrewtaylor.com/contact`;
-        }}
+        onclick={openMail}
     />
 {/snippet}
 
