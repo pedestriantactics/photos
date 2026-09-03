@@ -4,7 +4,7 @@ description: This is the oldest church in Costa Rica. All churches in Costa Rica
 title: Iglesia Colonial de Orosi
 
 images:
-- fileName: P9420998-1.jpeg
 - fileName: P9430002-1.jpeg
+- fileName: P9420998-1.jpeg
 - fileName: P9430003-1.jpeg
 ---
