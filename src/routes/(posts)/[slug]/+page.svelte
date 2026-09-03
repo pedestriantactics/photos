@@ -30,6 +30,20 @@
         (data.images.length ?? 0) + (data.description ? 1 : 0),
     );
 
+    function handleClose() {
+        // Check if the user has history within your app
+        const hasInternalHistory = document.referrer && document.referrer.includes(window.location.origin);
+
+        if (hasInternalHistory) {
+          console.log("going back")
+          // Triggers browser back navigation (restores scroll automatically via layout)
+          window.history.back();
+        } else {
+          // Permalink fallback: Navigate to gallery forward, but pass custom state
+          window.location.href = `../`;
+        }
+    }
+
     const updateIndex = () => {
         if (!scrollContainer) return;
 
@@ -122,9 +136,7 @@
     <IconButton
         iconName="icon-x"
         altTitle="Back"
-        onclick={() => {
-            window.location.href = `../`;
-        }}
+        onclick={handleClose}
     />
 {/snippet}
 

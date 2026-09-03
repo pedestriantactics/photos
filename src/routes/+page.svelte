@@ -5,6 +5,43 @@
     import HeaderBar from "$lib/components/HeaderBar.svelte";
     import { page } from "$app/state";
 
+
+    // to save scroll position
+    import { beforeNavigate, afterNavigate, disableScrollHandling } from '$app/navigation';
+      import { tick } from 'svelte';
+
+      // 1. Save scroll position right before the user leaves
+      beforeNavigate(({ from }) => {
+        if (from?.url?.pathname) {
+          sessionStorage.setItem(`scroll:${from.url.pathname}`, window.scrollY.toString());
+        }
+      });
+
+      // 2. Intercept navigation and restore the position
+      afterNavigate(async ({ to, type }) => {
+        if (type === 'popstate' && to?.url?.pathname) {
+          // Stop SvelteKit from doing its own automatic scroll logic
+          disableScrollHandling();
+
+          const savedScroll = sessionStorage.getItem(`scroll:${to.url.pathname}`);
+          if (savedScroll) {
+            // Wait completely for Svelte to finish rendering any async DOM changes
+            await tick();
+
+            // Brief timeout ensures layout/images have calculated their heights
+            setTimeout(() => {
+              window.scrollTo({
+                top: parseInt(savedScroll, 10),
+                behavior: 'instant'
+              });
+            }, 50);
+          }
+        }
+      });
+
+
+
+
     let { data } = $props();
 
     let windowWidth = writable(
