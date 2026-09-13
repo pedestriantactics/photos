@@ -3,6 +3,9 @@ shootDate: 2025-12-17
 
 title: Interior Costa Rica
 
+categories:
+- architecture
+
 images:
 - fileName: P9420602.jpeg
 - fileName: P9420543.jpeg

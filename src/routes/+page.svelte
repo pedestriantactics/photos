@@ -1,12 +1,13 @@
 <script lang="ts">
     import { writable } from "svelte/store";
     import IconButton from "$lib/components/IconButton.svelte";
-    import { onMount, onDestroy } from "svelte";
+    import { onMount, onDestroy, tick } from "svelte";
     import HeaderBar from "$lib/components/HeaderBar.svelte";
     import { page } from "$app/state";
+	import { goto } from '$app/navigation';
 
     // for the post modal
-import { pushState, preloadData } from '$app/navigation';
+    import { pushState, preloadData } from '$app/navigation';
 
 
     async function openPostModal(e, href) {
@@ -31,31 +32,49 @@ import { pushState, preloadData } from '$app/navigation';
     let windowWidth = writable(
         typeof window !== "undefined" ? window.innerWidth : 0,
     );
-    // #regionend
-
-    // $: activeTag = $page.url.searchParams.get("tag");
-
-    // // filter out hidden posts
-    // let nonHiddenPosts = posts.filter((post) => !post.hidden);
-
-    // sort posts by upload date
-    // posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-
-    // $: filteredPosts = activeTag && activeTag !== "all"
-    // 	? nonHiddenPosts.filter((post) => post.tags.includes(activeTag))
-    // 	: nonHiddenPosts;
 
 
 
+    // categories
 
-    // begin new masonry code
-    /**
-     * Define types for internal usage
-     */
-    interface LayoutParams {
-      colGap: number;
-      items: HTMLElement[];
-    }
+    // Derive the current category from URL search params.
+	// Defaults to 'all' if the param is missing.
+	let currentCategory = $derived(
+		page.url.searchParams.get('category') ?? 'all'
+	);
+
+	// Extract unique categories dynamically from the loaded posts
+	let allCategories = $derived([
+		'all',
+		...new Set(data.posts.flatMap((post) => post.meta.categories || []))
+	]);
+
+	// Filter posts based on currentCategory
+	let filteredPosts = $derived(
+		currentCategory === 'all'
+			? data.posts
+			: data.posts.filter((post) =>
+					post.meta.categories?.includes(currentCategory)
+				)
+	);
+
+	// // Function to update URL search parameters
+	// function setCategory(category: string) {
+	// 	const url = new URL(page.url);
+
+	// 	if (category === 'all') {
+	// 		url.searchParams.delete('category');
+	// 	} else {
+	// 		url.searchParams.set('category', category);
+	// 	}
+
+	// 	goto(url.toString(), {
+	// 		keepFocus: true,
+	// 		noScroll: true,
+	// 		replaceState: true
+	// 	});
+	// }
+
 
     function formatDate(inDate: Date) {
       let inDateDate = new Date(inDate);
@@ -69,8 +88,16 @@ import { pushState, preloadData } from '$app/navigation';
 		window.location.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
 	}
 
-    onMount(() => {
+	// begin new masonry code
+    /**
+     * Define types for internal usage
+     */
+    interface LayoutParams {
+      colGap: number;
+      items: HTMLElement[];
+    }
 
+    function runMasonryLayout() {
       const masonryLayouts = document.querySelectorAll<HTMLElement>('.masonry');
 
       masonryLayouts.forEach(async (container) => {
@@ -79,27 +106,59 @@ import { pushState, preloadData } from '$app/navigation';
         const colGap = parseFloat(getComputedStyle(container).columnGap);
         const items = getChildren(container);
 
-        // this started as 1px and dan changed it to auto because of layout issues
         container.style.gridAutoRows = 'auto';
         container.style.setProperty('row-gap', '1px', 'important');
 
         try {
-          // Wait for media to load before calculating layout
           await areImagesLoaded(container);
         } catch (e) {
-          // Silent fail as per original implementation
+          // Silent fail
         }
 
         layout({ colGap, items });
+      });
+    }
 
-        const observer = new ResizeObserver((entries: ResizeObserverEntry[]) => {
-          for (const entry of entries) {
-            layout({ colGap, items });
-          }
+    // Update setCategory to be async
+    async function setCategory(category: string) {
+        const url = new URL(page.url);
+
+        if (category === 'all') {
+            url.searchParams.delete('category');
+        } else {
+            url.searchParams.set('category', category);
+        }
+
+        // 1. Update the URL and trigger Svelte's state change
+        goto(url.toString(), {
+            keepFocus: true,
+            noScroll: true,
+            replaceState: true
+        });
+
+        // 2. Wait for Svelte 5 to update the DOM elements
+        await tick();
+
+        // 3. Recalculate the masonry layout positions
+        runMasonryLayout();
+    }
+
+    onMount(() => {
+      // Run the initial layout calculation
+      runMasonryLayout();
+
+      // Keep your ResizeObserver setup intact here
+      const masonryLayouts = document.querySelectorAll<HTMLElement>('.masonry');
+      masonryLayouts.forEach((container) => {
+        if (isMasonrySupported(container)) return;
+        const colGap = parseFloat(getComputedStyle(container).columnGap);
+
+        const observer = new ResizeObserver(() => {
+          const items = getChildren(container);
+          layout({ colGap, items });
         });
 
         observer.observe(container);
-        console.log("started observing")
       });
     });
 
@@ -166,11 +225,29 @@ import { pushState, preloadData } from '$app/navigation';
 <!-- TODO: gallery links need to be sticky -->
 
 <div id="container">
-    <!-- <div id="gallery-links">
-    <p>Landscape</p>
-    <p>Portrait</p>
-    <p>Detals</p>
-  </div> -->
+    <div id="gallery-links-container">
+        <div id="gallery-links">
+            <button
+                class:active={currentCategory === 'all'}
+                onclick={() => setCategory("all")}
+            >All</button>
+
+            <button
+                class:active={currentCategory === 'architecture'}
+                onclick={() => setCategory("architecture")}
+            >Architecture</button>
+
+            <button
+                class:active={currentCategory === 'client'}
+                onclick={() => setCategory("client")}
+            >Client</button>
+
+            <button
+                class:active={currentCategory === 'details'}
+                onclick={() => setCategory("details")}
+            >Details</button>
+        </div>
+    </div>
     <div id="gallery-container">
             <!-- <div id="about-container">
                 <p>
@@ -180,8 +257,8 @@ import { pushState, preloadData } from '$app/navigation';
             </div> -->
         <div class="masonry">
             <!-- end test -->
-            {#if data.posts}
-                {#each data.posts as post}
+            {#if filteredPosts}
+                {#each filteredPosts as post}
                     <div class="box">
                     <!-- <GridImage {post} /> -->
                     <!-- <div class="image-container"> -->
@@ -276,8 +353,13 @@ import { pushState, preloadData } from '$app/navigation';
         display: flex;
         flex-direction: row;
     }
+    #gallery-links-container {
+        width: var(--gallery-title-width);
+    }
     #gallery-links {
         width: var(--gallery-title-width);
+        position: fixed;
+        /*top: 1000px;*/
     }
     #gallery-container {
         width: 100%;
@@ -296,6 +378,21 @@ import { pushState, preloadData } from '$app/navigation';
     #about-container {
         align-self: flex-end;
         width: calc(66.6vw - (2 * var(--outer-margin)));
+    }
+
+    button {
+      display: grid;
+      grid-template-columns: 1em 1fr;
+      justify-items: left;
+      margin-left: -1em;
+    }
+
+    button::before {
+        content:"";
+    }
+
+    button.active::before {
+      content: "-"; /* The character you want to add */
     }
 
     /*make it smaller for huge screens*/
@@ -319,6 +416,20 @@ import { pushState, preloadData } from '$app/navigation';
         .masonry {
           display: grid;
           grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    /*category links move to the top*/
+     @media (max-width: 600px) {
+         #container {
+             flex-direction: column;
+             gap: var(--em);
+         }
+        #gallery-links-container {
+            width: 100%;
+        }
+        #gallery-links {
+            position: relative;
         }
     }
 

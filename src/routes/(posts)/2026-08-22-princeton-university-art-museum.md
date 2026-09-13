@@ -3,6 +3,9 @@ shootDate: 2026-08-22
 
 title: Princeton University Art Museum
 
+categories:
+- architecture
+
 images:
 - fileName: DSC_4759.jpeg
 - fileName: DSC_4762.jpeg

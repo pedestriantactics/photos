@@ -3,6 +3,11 @@ shootDate: 2025-09-06
 
 title: Otter Rock
 
+categories:
+- nature
+- details
+- texture
+
 images:
 - fileName: R0031718.jpeg
 - fileName: R0031711.jpeg

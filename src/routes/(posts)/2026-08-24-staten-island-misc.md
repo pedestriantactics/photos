@@ -3,6 +3,9 @@ shootDate: 2026-08-24
 
 title: Staten Island Misc
 
+categories:
+- architecture
+
 images:
 - fileName: DSC_5031.jpeg
 - fileName: DSC_5043.jpeg

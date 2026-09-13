@@ -3,6 +3,9 @@ shootDate: 2025-09-25
 
 title: Portland Misc
 
+categories:
+- details
+
 images:
 - fileName: R0031797.jpeg
 - fileName: R0031794.jpeg

@@ -4,10 +4,15 @@ shootDate: 2026-02-11
 title: Fulcrum Partners
 description: I had the priviledge of traveling for five days with Blas Alfaro of Fulcrum Coffee Roasters, documenting his visits with various partners. Video and photos were later used by Fulcrum's social media team to use for new release videos.
 
+categories:
+- architecture
+- client
+- details
+
 images:
+- fileName: P9550260.jpeg
+- fileName: P9550266.jpeg
 - fileName: P9550289.jpeg
 - fileName: P9550290.jpeg
 - fileName: P9550293.jpeg
-- fileName: P9550260.jpeg
-- fileName: P9550266.jpeg
 ---

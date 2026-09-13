@@ -3,6 +3,9 @@ shootDate: 2026-03-20
 
 title: Qualtrics Tower
 
+categories:
+- architecture
+
 images:
 - fileName: P9600412.jpeg
 - fileName: P9600413.jpeg

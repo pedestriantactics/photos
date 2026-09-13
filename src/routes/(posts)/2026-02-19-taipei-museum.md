@@ -3,6 +3,9 @@ shootDate: 2026-02-19
 
 title: Taipei Museum
 
+categories:
+- architecture
+
 images:
 - fileName: P9560354.jpeg
 - fileName: P9560355.jpeg

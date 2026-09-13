@@ -3,6 +3,9 @@ shootDate: 2026-02-24
 
 title: Multi-unit residence in Yilan
 
+categories:
+- architecture
+
 images:
 - fileName: P9590639.jpeg
 - fileName: P9590643.jpeg

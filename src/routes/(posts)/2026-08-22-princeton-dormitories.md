@@ -3,6 +3,9 @@ shootDate: 2026-08-22
 
 title: Princeton Dormitories
 
+categories:
+- architecture
+
 images:
 - fileName: DSC_4709.jpeg
 - fileName: DSC_4702.jpeg

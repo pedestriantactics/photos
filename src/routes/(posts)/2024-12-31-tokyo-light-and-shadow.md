@@ -3,6 +3,9 @@ shootDate: 2024-12-31
 
 title: Tokyo Light and Shadow
 
+categories:
+- architecture
+
 images:
 - fileName: R0021041.jpeg
 - fileName: R0029098.jpeg

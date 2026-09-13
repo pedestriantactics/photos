@@ -3,6 +3,9 @@ shootDate: 2024-12-31
 
 title: Pale Tokyo
 
+categories:
+- architecture
+
 images:
 - fileName: R0021046.jpeg
 - fileName: R0029163.jpeg

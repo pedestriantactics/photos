@@ -3,6 +3,9 @@ shootDate: 2025-03-06
 
 title: Seattle Misc Apartment
 
+categories:
+- architecture
+
 images:
 - fileName: R0011476.jpeg
 - fileName: R0011477.jpeg

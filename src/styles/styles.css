@@ -29,7 +29,7 @@
     --paragraph-max-char-width: 28em;
     --icon-size: 20px;
     --outline-thickness: 2px;
-    --outer-margin: 24px;
+    --outer-margin: 28px;
     /* used for gaps between masonry grid images and titles */
     --mini-gap: 8px;
     /* used for vertical gaps between gallery titles  */
@@ -126,6 +126,13 @@ textarea {
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 h1,
@@ -277,7 +284,7 @@ textarea::placeholder {
 @media (max-width: 480px), (max-height: 640px) {
     :root {
         --em: 16px;
-        --outer-margin: var(--em);
+        --outer-margin: 24px;
     }
 }
 
