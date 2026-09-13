@@ -3,6 +3,13 @@
     import HeaderBar from "$lib/components/HeaderBar.svelte";
     import IconButton from "$lib/components/IconButton.svelte";
     import { page } from "$app/state";
+
+    function openMail() {
+		const user = "hi";
+		const domain = "imdantaylor.com";
+		const subject = ""
+		window.location.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
+	}
 </script>
 
 <svelte:head>
@@ -37,7 +44,10 @@
                 I enjoy listening intently to spaces, using manual lenses, and experimenting with various post-processing methods.
 
             <p>
-                Some of my video work is on <a href="https://vimeo.com/danandrewtaylor">Vimeo</a>.
+                You can follow me on <a href="https://vimeo.com/danandrewtaylor">Vimeo</a> and <a href="https://www.instagram.com/danandrewtaylor/">Instagram</a>.
+            </p>
+            <p>
+                Contact me <a href="./" onclick={openMail}>here</a>.
             </p>
             </div>
     </div>
