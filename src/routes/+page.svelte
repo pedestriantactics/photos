@@ -214,11 +214,16 @@
 <HeaderBar title="Dan Taylor" titleLink="" buttons={headerButtons} />
 
 {#snippet headerButtons()}
-    <IconButton
+    <!-- <IconButton
         iconName="icon-envelope"
         altTitle="Back"
         onclick={openMail}
-    />
+    /> -->
+    <button onclick={() => {
+        window.location.href = `/about`;
+    }}>
+    About
+    </button>
 {/snippet}
 
 <!-- TODO: layout needs to adapt to mobile -->
