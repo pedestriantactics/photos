@@ -1,12 +1,11 @@
 ---
 shootDate: 2026-01-02
 
-title: Plants
+title: Trapped Plants
 
 categories:
 - details
 
 images:
 - fileName: P9430263.jpeg
-- fileName: P9430238.jpeg
 ---
