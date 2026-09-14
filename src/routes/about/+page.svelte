@@ -37,7 +37,10 @@
         <div id="description">
             <p>Photography and videography have been part of my process as an <a href="https://danandrewtaylor.com">industrial designer</a> for the last 15 years.
             </p>
-            <p>I see photography as an opportunity to slow down and appreciate things as I see them, without the pressure of creating new solutions to problems. The intent of my work is to pay homage to the incredible spaces and people I've visited, and hightlight the color reproduction of some of my favorite equipment.
+            <p>I see photography as an opportunity to slow down and appreciate things as I see them, without the pressure of creating new solutions to problems. 
+            </p>
+            <p>
+            The intent of my work is to pay homage to the incredible spaces and people I've visited, and hightlight the color reproduction of some of my favorite equipment.
             <p>
                 You can follow me on <a href="https://vimeo.com/danandrewtaylor">Vimeo</a> and <a href="https://www.instagram.com/danandrewtaylor/">Instagram</a>. Email me <a href="./" onclick={openMail}>here</a>.
             </p>
