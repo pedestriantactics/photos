@@ -21,6 +21,8 @@
 	);
 </script>
 
+<script defer src="https://umami.catalystsoftworks.com/script.js" data-website-id="1f70cae1-9588-4419-b308-f76b879a82ba"></script>
+
 <svelte:head>
 	<!-- <link rel="icon" href={favicon} /> -->
     <title>{pageTitle}</title>
