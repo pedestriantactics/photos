@@ -35,7 +35,7 @@
 <div id="container">
     <div id="description-wrapper">
         <div id="description">
-            <p>Photography and videography have been part of my process as an <a href="https://danandrewtaylor.com">industrial designer</> for the last 15 years.
+            <p>Photography and videography have been part of my process as an <a href="https://danandrewtaylor.com">industrial designer</a> for the last 15 years.
             </p>
             <p>
                 I see photography as an opportunity to slow down and appreciate things as-is, without the pressure of finding new solutions to problems.
