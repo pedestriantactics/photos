@@ -35,9 +35,7 @@
 <div id="container">
     <div id="description-wrapper">
         <div id="description">
-            <p>
-                I worked in <a href="https://danandrewtaylor.com">industrial design and user experience design</a> since graduating from Western Washington University in 2016.
-                I frequently found myself conducting studio photography for various products, interior and exterior photography of products on-location, and videography.
+            <p>Photography and videography have been part of my process as an <a href="https://danandrewtaylor.com">industrial designer</> for the last 15 years.
             </p>
             <p>
                 I see photography as an opportunity to slow down and appreciate things as-is, without the pressure of finding new solutions to problems.
