@@ -273,7 +273,7 @@
 		line-height: 1.2;
 		letter-spacing: .02em;
 		font-weight: 300; */
-        max-width: 30em;
+        max-width: var(--paragraph-max-char-width);
     }
 
     .image-wrapper {

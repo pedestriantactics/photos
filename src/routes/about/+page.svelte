@@ -35,13 +35,13 @@
 <div id="container">
     <div id="description-wrapper">
         <div id="description">
-            <p>Photography and videography have been part of my process as an <a href="https://danandrewtaylor.com">industrial designer</a> for the last 15 years.
-            </p>
-            <p>I see photography as an opportunity to slow down and appreciate things as I see them, without the pressure of creating new solutions to problems. 
-            </p>
-            <p>
-            The intent of my work is to pay homage to the incredible spaces and people I've visited, and hightlight the color reproduction of some of my favorite equipment.
-            <p>
+<p>
+            Photography and videography have been an integral part of my process as a <a href="https://danandrewtaylor.com">designer</a> over the past 15 years.
+            </p><p>
+            I see photography as an opportunity to slow down and appreciate things as I see them – to exist in the moment and be present.
+            </p><p>
+            The intent of my work is to pay homage to the incredible spaces I’ve visited and tell the stories of people I've met, while highlighting the color reproduction of some of my favorite equipment.
+            </p><p>
                 You can follow me on <a href="https://vimeo.com/danandrewtaylor">Vimeo</a> and <a href="https://www.instagram.com/danandrewtaylor/">Instagram</a>. Email me <a href="./" onclick={openMail}>here</a>.
             </p>
             </div>
@@ -68,7 +68,7 @@
 		line-height: 1.2;
 		letter-spacing: .02em;
 		font-weight: 300; */
-        max-width: 30em;
+        max-width: var(--paragraph-max-char-width);
         display: flex;
         flex-direction: column;
         gap: var(--em);

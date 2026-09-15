@@ -26,7 +26,7 @@
     --em: 18px;
     --spacer-width: var(--mini-gap);
     /* used to make a paragraph in a modal not expand too wide */
-    --paragraph-max-char-width: 28em;
+    --paragraph-max-char-width: 32em;
     --icon-size: 20px;
     --outline-thickness: 2px;
     --outer-margin: 28px;
