@@ -4,7 +4,6 @@ shootDate: 2026-06-06
 title: Hogstead Farm
 
 categories:
-- architecture
 - client
 
 images:

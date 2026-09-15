@@ -5,7 +5,6 @@ title: Fulcrum Partners
 description: I had the priviledge of traveling for five days with Blas Alfaro of Fulcrum Coffee Roasters, documenting his visits with various partners. Video and photos were later used by Fulcrum's social media team to use for new release videos.
 
 categories:
-- architecture
 - client
 - details
 
